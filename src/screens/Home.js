@@ -23,8 +23,9 @@ class Home extends Component {
          renderItem={({item}) => (
           <View style={ styles.itemCard }>
             <Image source={{ uri: item.image }} style={{ width: 150, height: 150 }}/>
-            <View>
-              <Text>{ item.name }</Text>
+            <View style={ styles.productDetail }>
+              <Text style={ styles.productTitle }>{ item.name }</Text>
+              <Text style={ styles.productPrice }>Price: US${ item.price }</Text>
             </View>
           </View>
          )}/>
@@ -49,7 +50,17 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     backgroundColor: '#fff',
+  },
+  productDetail: {
+    marginLeft: 2,
+  },
+  productTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  productPrice: {
+    fontSize: 16,
   }
-})
+});
 
 export default Home;
