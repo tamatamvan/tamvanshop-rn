@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, FlatList, Image, Button, StyleSheet } from 'react-native';
+import { View, Text, FlatList, Image, Button, TextInput, StyleSheet } from 'react-native';
 
 class Home extends Component {
   state = {
@@ -26,6 +26,10 @@ class Home extends Component {
             <View style={ styles.productDetail }>
               <Text style={ styles.productTitle }>{ item.name }</Text>
               <Text style={ styles.productPrice }>Price: US${ item.price }</Text>
+              {/* <TextInput value='0'/> */}
+              {/* <View> */}
+                <Button title='Add to Cart'/>
+              {/* </View> */}
             </View>
           </View>
          )}/>
@@ -53,6 +57,8 @@ const styles = StyleSheet.create({
   },
   productDetail: {
     marginLeft: 2,
+    flex: 1,
+    justifyContent: 'flex-start',
   },
   productTitle: {
     fontSize: 18,
