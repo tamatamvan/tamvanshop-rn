@@ -17,6 +17,8 @@ class Home extends Component {
     headerTitle: 'TamvanShop',
   }
 
+  _keyExtractor = (item) => `product_${item.id}`
+
   _renderItem = ({item}) => (
     <ItemCard item={ item } />
   )
@@ -25,8 +27,11 @@ class Home extends Component {
     return (
       <View style={ styles.container }>
         <Text style={ styles.sectionTitle }>Product List</Text>
-        <FlatList data={ this.state.products }
-         renderItem={ this._renderItem }/>
+        <FlatList 
+          data={ this.state.products }
+          renderItem={ this._renderItem }
+          keyExtractor={ this._keyExtractor }
+        />
       </View>   
     );
   }
