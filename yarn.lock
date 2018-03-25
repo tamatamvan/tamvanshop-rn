@@ -78,6 +78,13 @@
     lodash "^4.17.4"
     react-native-vector-icons "4.5.0"
 
+"@expo/vector-icons@expo/vector-icons":
+  version "6.3.1"
+  resolved "https://codeload.github.com/expo/vector-icons/tar.gz/c7aeb3e4d526e51b5d6617878734c6d9a52e2b7a"
+  dependencies:
+    lodash "^4.17.4"
+    react-native-vector-icons "4.5.0"
+
 "@segment/loosely-validate-event@^1.1.2":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@segment/loosely-validate-event/-/loosely-validate-event-1.1.2.tgz#d77840999e3f7e43e74b3b0d43391c1526f793b8"
