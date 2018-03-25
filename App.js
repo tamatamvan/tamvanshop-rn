@@ -1,5 +1,8 @@
 import React from 'react';
 import { StackNavigator } from 'react-navigation';
+import { Provider } from 'react-redux';
+import store from './src/store';
+
 import Home from './src/screens/Home';
 
 const RootStack = StackNavigator({
@@ -19,7 +22,9 @@ const RootStack = StackNavigator({
 export default class App extends React.Component {
   render() {
     return (
-      <RootStack />
+      <Provider store={ store }>
+        <RootStack />
+      </Provider>
     );
   }
 }
