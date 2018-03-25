@@ -17,14 +17,16 @@ class Home extends Component {
     headerTitle: 'TamvanShop',
   }
 
+  _renderItem = ({item}) => (
+    <ItemCard item={ item } />
+  )
+
   render() {
     return (
       <View style={ styles.container }>
         <Text style={ styles.sectionTitle }>Product List</Text>
         <FlatList data={ this.state.products }
-         renderItem={({item}) => (
-          <ItemCard item={ item } />
-         )}/>
+         renderItem={ this._renderItem }/>
       </View>   
     );
   }
