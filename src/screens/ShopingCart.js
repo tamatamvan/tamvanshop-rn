@@ -11,6 +11,13 @@ import ItemShopingCart from '../components/ItemShoppingCart';
 import { connect } from 'react-redux';
 
 class ShopingCart extends Component {
+
+  _keyExtractor = (item, idx) => item.id;
+
+  _renderItem = ({ item }) => (
+    <ItemShopingCart item={ item }/>
+  );
+
   render() {
     const { cartItems, total } = this.props;
     return (
@@ -19,11 +26,8 @@ class ShopingCart extends Component {
         <FlatList
          style={{ flexGrow: 0 }}
          data={ cartItems }
-         renderItem={
-          ({ item }) => (
-            <ItemShopingCart item={ item }/>
-          )
-        }
+         keyExtractor={ this._keyExtractor }
+         renderItem={ this._renderItem }
         />
         <Text>Total: { total }</Text>
       </View>
