@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
-import { View, Image, Text, StyleSheet, Button, TextInput, TouchableHighlight } from 'react-native';
+import {
+  View,
+  Image,
+  Text,
+  StyleSheet,
+  Button,
+  TextInput,
+  TouchableHighlight 
+} from 'react-native';
 
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
