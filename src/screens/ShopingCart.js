@@ -3,6 +3,7 @@ import {
   View,
   Text,
   FlatList,
+  StyleSheet,
 } from 'react-native';
 
 class ShopingCart extends Component {
