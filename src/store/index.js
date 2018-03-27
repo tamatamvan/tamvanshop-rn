@@ -1,4 +1,6 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import logger from 'redux-logger';
+
 import productsReducers from './products/products.reducers';
 import cartsReducers from './carts/carts.reducers';
 
@@ -7,6 +9,9 @@ const reducers = combineReducers({
   carts: cartsReducers,
 });
 
-const store = createStore(reducers);
+const store = createStore(
+  reducers,
+  applyMiddleware(logger)
+);
 
 export default store;
