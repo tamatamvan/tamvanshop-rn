@@ -10,8 +10,8 @@ const initialState = {
 const cartsReducers = (state={ ...initialState }, action) => {
   switch (action.type) {
     case ADD_TO_CART:
-      const updatedItems = [ ...state.items, payload.item ];
-      const updatedTotal = state.total + payload.item.price;
+      const updatedItems = [ ...state.items, action.payload ];
+      const updatedTotal = state.total + action.payload.price;
       return ({
         ...state,
         items: updatedItems,
