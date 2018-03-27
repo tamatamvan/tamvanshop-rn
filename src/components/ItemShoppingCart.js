@@ -6,6 +6,7 @@ import {
   Image,
   TouchableHighlight,
 } from 'react-native';
+import { MaterialIcons } from '@expo/vector-icons';
 
 class ItemShoppingCart extends Component {
   render() {
@@ -16,11 +17,14 @@ class ItemShoppingCart extends Component {
          style={ styles.imageSize }
         />
         <View style={ styles.itemInfo }>
-          <Text style={ styles.item }>
+          <Text style={ styles.itemTitle }>
             { item.name } - US${ item.price } x { item.qty }
           </Text>
           <Text>Subtotal: US${ item.subtotal }</Text>
         </View>
+        <TouchableHighlight style={ styles.deleteButton }>
+          <MaterialIcons name='delete' size={32} color='#F44336'/>
+        </TouchableHighlight>
       </View>
     );
   }
@@ -43,10 +47,17 @@ const styles = StyleSheet.create({
   itemInfo: {
     paddingLeft: 8,
     paddingRight: 8,
+    flex: 1,
   },
   itemTitle: { 
     fontSize: 16,
     fontWeight: 'bold'
+  },
+  deleteButton: { 
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 4,
   },
 })
 

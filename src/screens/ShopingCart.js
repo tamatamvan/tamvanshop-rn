@@ -29,7 +29,7 @@ class ShopingCart extends Component {
          keyExtractor={ this._keyExtractor }
          renderItem={ this._renderItem }
         />
-        <Text>Total: { total }</Text>
+        <Text style={ styles.total }>Total: US${ total }</Text>
       </View>
     );
   }
@@ -48,6 +48,15 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 24,
   },
+  total: { 
+    padding: 8,
+    backgroundColor: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
+    textAlign: 'right',
+    marginTop: 4,
+    marginBottom: 4,
+  }
 });
 
 export default connect(mapStateToProps)(ShopingCart);
