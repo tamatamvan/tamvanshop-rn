@@ -8,9 +8,14 @@ import {
 } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+
+import { removeFromCart } from '../store/carts/carts.actions';
+
 class ItemShoppingCart extends Component {
   render() {
-    const { item } = this.props;
+    const { item, removeFromCart } = this.props;
     return (
       <View style={ styles.itemCard}>
         <Image source={{ uri: item.image }} 
@@ -22,13 +27,18 @@ class ItemShoppingCart extends Component {
           </Text>
           <Text>Subtotal: US${ item.subtotal }</Text>
         </View>
-        <TouchableHighlight style={ styles.deleteButton }>
+        <TouchableHighlight style={ styles.deleteButton }
+         onPress={ () => removeFromCart(item.id) }>
           <MaterialIcons name='delete' size={32} color='#F44336'/>
         </TouchableHighlight>
       </View>
     );
   }
 }
+
+const mapDispatchToProps = (dispatch) => bindActionCreators({
+  removeFromCart
+}, dispatch);
 
 const styles = StyleSheet.create({
   itemCard: {
@@ -61,4 +71,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default ItemShoppingCart;
+export default connect(null, mapDispatchToProps)(ItemShoppingCart);
