@@ -1,5 +1,6 @@
 import {
   ADD_TO_CART,
+  REMOVE_FROM_CART,
 } from './carts.actionTypes';
 
 const initialState = {
@@ -21,6 +22,16 @@ const cartsReducers = (state={ ...initialState }, action) => {
         items: updatedItems,
         total: updatedTotal,
       });
+    case REMOVE_FROM_CART:
+      const { items } = state;
+      const id = action.payload;
+      const idx = items.findIndex(item => item.id === id);
+      const subtotal = idx !== -1 ? items[idx].subtotal : 0;
+      return ({
+        ...state,
+        items: state.items.filter(item => item.id !== action.payload),
+        total: state.total - subtotal,
+      })
     default:
       return state
   }
