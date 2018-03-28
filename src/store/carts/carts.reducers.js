@@ -35,13 +35,13 @@ const cartsReducers = (state={ ...initialState }, action) => {
         };
         updatedItems =  [ ...state.items, item ];
         updatedTotal = state.total + item.subtotal;
-      }
-      
+      }      
       return ({
         ...state,
         items: updatedItems,
         total: updatedTotal,
       });
+
     case REMOVE_FROM_CART:
       const { items } = state;
       const id = action.payload;
@@ -52,6 +52,7 @@ const cartsReducers = (state={ ...initialState }, action) => {
         items: state.items.filter(item => item.id !== action.payload),
         total: state.total - subtotal,
       })
+
     default:
       return state
   }
